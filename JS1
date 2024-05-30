@@ -1,0 +1,58 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+ const finalNft=[]
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (jerseyNo , playerName , playerRuns , playerAvg) 
+{
+    const tempNft=
+    {
+        "JerseyNo" : jerseyNo,
+        "PlayerName" : playerName,
+        "PlayerRuns" : playerRuns,
+        "PlayerAverage" : playerAvg
+    }
+    finalNft.push(tempNft);
+    console.log("\nMinted for Jersey No.:"+jerseyNo);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs (jerseyNo) 
+{
+    for(let i=0;i<finalNft.length;i++)
+    {
+        if(jerseyNo==finalNft[i].JerseyNo)
+        {
+            console.log("\nName          : " + finalNft[i].PlayerName);
+            console.log("Jersey No.    : " + finalNft[i].JerseyNo);
+            console.log("Player Runs   : " + finalNft[i].PlayerRuns);
+            console.log("Player Average: " + finalNft[i].PlayerAverage);
+        }
+    }
+    
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() 
+{
+    console.log("\nTotal NFTs:"+finalNft.length);
+}
+
+// call your functions below this line
+mintNFT(18,"Virat Kohli",20535,54.07);
+mintNFT(45,"Rohit Sharma",12546,43.56);
+
+listNFTs(18);
+listNFTs(45);
+getTotalSupply();
